@@ -1,0 +1,33 @@
+.abacusBox{
+    box-shadow: inset -2px -2px 20px ;
+    
+}
+
+
+.bead {
+ 
+    border-radius: 50%;
+    background: radial-gradient(
+      circle at 30% 30%, 
+      #efecec, /* Highlight color */
+      #e3e0e0 50%, /* Main bead color */
+      #bdb7b7 80% /* Shadow color */
+    );
+    box-shadow: 
+      0 10px 20px rgba(0, 0, 0, 0.3), /* Main shadow */
+      inset 0 -5px 10px rgba(0, 0, 0, 0.3), /* Inner shadow */
+      inset 0 5px 15px rgba(255, 255, 255, 0.5); /* Light reflection */
+    position: relative;
+  }
+  
+  .bead::after {
+    content: '';
+    position: absolute;
+    top: 20%;
+    left: 20%;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: rgba(142, 139, 139, 0); /* Shiny reflection */
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.007);
+  }
