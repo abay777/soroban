@@ -33,7 +33,8 @@ function App() {
         </div>
 
         <main className="flex justify-center mt-10">
-            <Abacus result={result} setResult={setResult}/>
+            {/* <Abacus result={result} setResult={setResult}/> */}
+            <Abacus setResult={setResult}/>
         </main>
         </section>
 

@@ -2,6 +2,11 @@ import { useState } from "react";
 import PropTypes from 'prop-types';
 
 
+
+const beadValue =[
+  Array.from({length:13},(_,index)=> 1* Math.pow(10,index)).reverse(),
+];
+
 // AbacusRow Component renders the beads in each row.
 const AbacusRow = ({ beads, rowIndex, isFirstRow, onClick }) => {
   const colBeads = 13; // Number of beads in the row
@@ -44,64 +49,55 @@ const Abacus = ({setResult}) => {
 
 
 
-  const beadValue =[
-    Array.from({length:13},(_,index)=> 5* Math.pow(10,index)).reverse(),
-     Array.from({length:13},(_,index)=> 1* Math.pow(10,index)).reverse(),
-     Array.from({length:13},(_,index)=> 2* Math.pow(10,index)).reverse(),
-     Array.from({length:13},(_,index)=> 3* Math.pow(10,index)).reverse(),
-     Array.from({length:13},(_,index)=> 4* Math.pow(10,index)).reverse(),
-  ];
 
   
+
+
  
   // Function to handle bead movement independently for the clicked bead
   const handleBeadClick = (rowIndex, beadIndex, isFirstRow) => {
-    debugger
-
-    const newRow =[...rows];
-    // for the firstRow or mainRow
-    if(isFirstRow&& newRow[rowIndex][beadIndex]===-20){
-      newRow[rowIndex][beadIndex] = 0;
-      setResult((prev)=> prev += beadValue[0][beadIndex] )
-      setRows(()=> newRow)
-    }else if( isFirstRow && newRow[rowIndex][beadIndex]===0){
-      newRow[rowIndex][beadIndex] = -20;
-      setResult((prev)=> prev -= beadValue[0][beadIndex] )
-      setRows(()=> newRow)
-    }
- 
-// Handle cumulative logic for rows other than the first row
-if (rowIndex >= 1) {
+    const newRow = [...rows];
+    let tempValue = 0;
   
-  let tempValue = 0;
-
-  if (newRow[rowIndex][beadIndex] === 0) {
-    // Moving beads up (addition)
-    for (let i = rowIndex; i >= 1; i--) {
-      if (newRow[i][beadIndex] === 0) {
-        newRow[i][beadIndex] = -20; // Move bead up
-        tempValue = beadValue[1][beadIndex] * rowIndex; // Add bead value
-        console.log(`Adding bead value from row ${i}:`, beadValue[i][beadIndex]);
+    if (isFirstRow) {
+      // Handle first row bead movement
+      if (newRow[rowIndex][beadIndex] === -20) {
+        newRow[rowIndex][beadIndex] = 0; // Move bead down
+        tempValue += beadValue[0][beadIndex] *5;
+      } else if (newRow[rowIndex][beadIndex] === 0) {
+        newRow[rowIndex][beadIndex] = -20; // Move bead up
+        tempValue -= beadValue[0][beadIndex] *5;
+      }
+    } else {
+      // Handle rows other than the first row
+      if (newRow[rowIndex][beadIndex] === 0) {
+      
+        // Moving bead up
+        for (let i = rowIndex; i >= 1; i--) {
+          if (newRow[i][beadIndex] === 0) {
+            newRow[i][beadIndex] = -20;
+            tempValue += beadValue[0][beadIndex]; // Accumulate value  
+         
+          }
+        }
+      } else if (newRow[rowIndex][beadIndex] === -20) {
+        // Moving bead down
+        for (let i = rowIndex; i <= newRow.length - 1; i++) {
+          if (newRow[i][beadIndex] === -20) {
+            newRow[i][beadIndex] = 0;
+            console.log(rowIndex , beadIndex ,'row & bead')
+            tempValue -= beadValue[0][beadIndex]; // Subtract value
+          }
+        }
       }
     }
-    setResult(() =>  tempValue); // Add cumulative value to the result
-  } else if (newRow[rowIndex][beadIndex] === -20) {
-    // Moving beads down (subtraction)
-    for (let i = rowIndex; i <= newRow.length - 1; i++) {
-      if (newRow[i][beadIndex] === -20) {
-        newRow[i][beadIndex] = 0; // Move bead down
-        tempValue += beadValue[i][beadIndex]; // Subtract bead value
-        console.log(`Subtracting bead value from row ${i}:`, beadValue[i][beadIndex]);
-      }
-    }
-    setResult((prev) => prev - tempValue); // Subtract cumulative value from the result
-  }
-
-  setRows(() => newRow);
-}
-};
+  
+    // Update result and rows state
+    setResult((prev)=> prev + tempValue);
+    setRows(newRow);
+  };
   return (
-    <div className="flex flex-col items-start space-y-2 p-4 max-w-min bg-white mx-auto px-10 py-5 mt-10 absolute rounded-md border-black border-[1px]" style={{ zIndex: 100 }}>
+    <div className="flex flex-col items-start space-y-2 p-4 max-w-min bg-white mx-auto px-10 py-5 mt-2 absolute rounded-md border-black border-[1px]" style={{ zIndex: 100 }}>
       {/* Render all rows */}
       {rows.map((row, index) => (
         <AbacusRow
@@ -116,8 +112,7 @@ if (rowIndex >= 1) {
   );
 };
 
-Abacus.propTypes = {
-  result: PropTypes.number.isRequired,  // result is a number
+Abacus.propTypes = {  // result is a number
   setResult: PropTypes.func.isRequired,  // setResult is a function
 };
 export default Abacus;
