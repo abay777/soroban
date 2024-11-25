@@ -97,7 +97,7 @@ const Abacus = ({setResult}) => {
     setRows(newRow);
   };
   return (
-    <div className="abacusBox min-w-[350px] flex flex-col items-center md:items-start space-y-2 p-4  bg-white mx-auto lg:px-10 py-5 mt-5 absolute rounded-md border-black border-[1px]" style={{ zIndex: 100 }}>
+    <div className="abacusBox min-w-[350px] flex flex-col items-center md:items-start space-y-2 p-4  bg-white mx-auto lg:px-10 py-5 mt-0 absolute rounded-md border-black border-[1px]" style={{ zIndex: 100 }}>
       {/* Render all rows */}
       <hr className="h-1 w-[92%] rounded-[2px] -translate-x-1/2 left-1/2 top-[26%] bg-gradient-to-tr from-gray-300 from-100% via-gray-200 via-100%  to-gray-700 to-100% absolute " style={{zIndex:130}} />
       {rows.map((row, index) => (

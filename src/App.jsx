@@ -2,11 +2,13 @@ import Snowfall from "react-snowfall";
 import "./App.css";
 import Abacus from "./components/abacus/Abacus";
 import { useState } from "react";
+import Fish from "./components/fish/Fish";
+import DialogueBox from "./components/dialogue box/DialogueBox ";
 
 function App() {
     const [result, setResult] = useState(0)
   return (
-     <section className=" bg-no-repeat bg-cover  w-full h-[100dvh] " style={{ backgroundImage: "url(/mainbg.png)" }}>
+     <section className=" bg-no-repeat bg-cover  w-full h-[200dvh] " style={{ backgroundImage: "url(/mainbg.png)" }}>
         <section>
         <Snowfall 
         color="#fff"
@@ -32,10 +34,16 @@ function App() {
             <span className="text-[#1e40af] font-bold text-3xl ">Result: {result}</span>
         </div>
 
-        <main className="flex justify-center">
+        <section className="bg-[#42a1c6] relative h-[40rem]">
+            <Fish >
+                <DialogueBox  content={"hello i'am finny the fish"}/>
+            </Fish>
+        <main className=" mt-[10rem] flex justify-center mx-auto">
            
             <Abacus setResult={setResult}/>
         </main>
+        </section>
+ 
         </section>
 
      </section>

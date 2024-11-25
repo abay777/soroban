@@ -1,0 +1,217 @@
+html {
+    --skin: #8cb746;
+    --skinShade: #7ca746;
+    --shell: #795745;
+    --shellShade: #683f36;
+  }
+  
+  body {
+    background: #E2DED3;
+  }
+  
+  .turtle {
+    height: 80vh;
+    width: 80vh;
+    border-radius: 100%;
+    background: #e2ded3;
+    position: fixed;
+    top: 10vh;
+    left: calc( 50vw - 40vh );
+    /*box-shadow: 0 0 0 0vh #e2ded3, 0 6vh 10vh -0.8vh #e2ded3, -4vh 4vh 7vh -1.7vh #d2cec3 inset;*/
+  }
+  
+  .skin {
+    background: var( --skin );
+  }
+  
+  .head {
+    height: 15vh;
+    width: 7vh;
+    border-radius: 6vh 0vh 7vh 10vh;
+    position: absolute;
+    top: 27vh;
+    left: 21vh;
+    z-index: 10;
+    transform: rotate( -35deg );
+    background: var( --skinShade );
+  }
+  
+  .head::after {
+    position: absolute;
+    content: "";
+    height: 14vh;
+    width: 14vh;
+    border-radius: 4vh 9vh 13vh 13vh;
+    top: -9vh;
+    right: -3vh;
+    transform: rotate(15deg);
+    background: var( --skin );
+  }
+  
+  .tail {
+    position: absolute;
+    height: 4vh;
+    width: 8vh;
+    bottom: 33vh;
+    right: 11vh;
+    border-radius: 10vh 5vh 15vh 10vh;
+    animation: tailWag 9s ease-in-out 0s infinite;
+  }
+  
+  .eye {
+    position: absolute;
+    height: 3vh;
+    width: 3vh;
+    background-color: black;
+    border-radius: 100vh;
+    z-index: 100;
+    top: -7vh;
+    left: 0.5vh;
+    animation-name: blink;
+    animation-duration: 6s;
+    animation-iteration-count: infinite;
+    animation-delay: 1s;
+    transform: rotate( 25deg );
+  }
+  
+  .shell {
+    position: absolute;
+    width: 0vh;
+    height: 0vh;
+    top: 27vh;
+    left: 23vh;
+    border-right: 20vh solid transparent;
+    border-top: 20vh solid var( --shell );
+    border-left: 20vh solid var( --shell );
+    border-bottom: 20vh solid transparent;
+    border-top-left-radius: 20vh;
+    border-top-right-radius: 20vh;
+    border-bottom-left-radius: 20vh;
+    border-bottom-right-radius: 20vh;
+    transform: rotate(45deg);
+    z-index: 100;
+  }
+  
+  .shell::after {
+    position: absolute;
+    display: block;
+    content: "";
+    background: var( --shellShade );
+    height: 3vh;
+    width: 42vh;
+    border-radius: 10vh;
+    transform: rotate(-45deg);
+    top: -0.5vh;
+    left: -20vh;
+  }
+  
+  .frontLeftArm {
+    height: 18vh;
+    width: 10vh;
+    border-radius: 8vh 8vh 20vh 4vh;
+    top: 42vh;
+    left: 25vh;
+    position: absolute;
+    transform: rotate(20deg);
+    z-index: 3;
+  }
+  
+  .frontRightArm {
+    height: 18vh;
+    width: 10vh;
+    border-radius: 8vh 8vh 20vh 4vh;
+    top: 42vh;
+    left: 28vh;
+    position: absolute;
+    transform: rotate(20deg);
+    background: var( --skinShade );
+    z-index: 2;
+  }
+  
+  .backLeftArm {
+   height: 18vh;
+    width: 10vh;
+    border-radius: 8vh 8vh 4vh 20vh;
+    top: 42vh;
+    left: 50vh;
+    position: absolute;
+    transform: rotate(-20deg);
+    z-index: 3; 
+  }
+  
+  .backRightArm {
+    height: 18vh;
+    width: 10vh;
+    border-radius: 8vh 8vh 4vh 20vh;
+    top: 42vh;
+    left: 47vh;
+    position: absolute;
+    transform: rotate(-20deg);
+    background: var( --skinShade );
+    z-index: 2;
+  }
+  
+  
+  @keyframes blink {
+    0% {
+      height: 3vh;
+    }
+    13% {
+      top: -7vh;
+      height: 3vh;
+    }
+    15% {
+      top: -5.5vh;
+      height: 0vh;
+    }
+    18% {
+      top: -7vh;
+      height: 3vh;
+    }
+    23% {
+      top: -7vh;
+      height: 3vh;
+    }
+    25% {
+      top: -5.5vh;
+      height: 0vh;
+    }
+    28% {
+      top: -7vh;
+      height: 3vh;
+    }
+    100% {
+      height: 3vh;
+    }
+  }
+  
+  @keyframes tailWag {
+    0% {
+      bottom: 33vh;
+      transform: rotate(0deg);
+    }
+    10% {
+      bottom: 33vh; 
+      transform: rotate(0deg);
+    }
+    13% {
+      bottom: 32vh;
+      transform: rotate(10deg);
+    }
+    16% {
+      bottom: 33vh;
+      transform: rotate(0deg);
+    }
+    16% {
+      bottom: 34vh;
+      transform: rotate(-10deg);
+    }
+    19% {
+      bottom: 33vh;
+      transform: rotate(0deg);
+    }
+    100% {
+      bottom: 33vh;
+      transform: rotate(0deg);
+    }
+  }
