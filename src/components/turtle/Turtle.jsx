@@ -3,10 +3,10 @@ import './turtle.css'
 
 const Turtle = ({children}) => {
   return (
-    <section>
+    <section className="relative ">
       <div class="turtle">
         <div class="head skin">
-          <div class="eye"></div>
+          <div class="teye"></div>
         </div>
         <div class="tail skin"></div>
         <div class="shell">
@@ -17,6 +17,9 @@ const Turtle = ({children}) => {
         <div class="backLeftArm skin"></div>
         <div class="backRightArm"></div>
       </div>
+      <main className="absolute -top-[19rem] right-[30%]">
+         {children}
+      </main>
     </section>
   );
 };

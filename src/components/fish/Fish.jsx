@@ -6,14 +6,14 @@ const Fish = ({children}) => {
     <section className="">
       <div class="fish">
         <div class="fish-body">
-          <div class="eye">
+          <div class="feye">
             <div class="pupil"></div>
           </div>
         </div>
         <div class="fin"></div>
         <div class="fin fin-bottom"></div>
       </div>
-      <div className="flex absolute top-10 left-2/4">
+      <div className="flex absolute top-0 left-[60%]">
 
       {children}
       </div>

@@ -1,3 +1,30 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+/* Fade-out and Fade-in animations */
+.fade-out {
+    animation: fadeOut 1s cubic-bezier(0.25, 0.1, 0.25, 1);
+  }
+  
+  .fade-in {
+    animation: fadeIn 1s cubic-bezier(0.25, 0.1, 0.25, 1);
+  }
+  
+  @keyframes fadeOut {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  

@@ -22,7 +22,7 @@
     height: 100px;
   }
   
-  .eye {
+  .feye {
     position: absolute;
     margin-left: 100px;
     margin-top: 20px;
@@ -114,7 +114,7 @@
   @keyframes swim {
     0% {
      
-        transform: translateY(50px) translateX(70%) rotate(00deg);
+        transform: translateY(50px) translateX(90%) rotate(00deg);
     }
     25% { 
      
@@ -140,4 +140,60 @@
     }
   }
   
-  
+  @media (max-width:710px){
+    .fish {
+        width: 30%;
+        height: 28%;
+        margin-bottom:   0;
+        animation: swim 3s forwards infinite; 
+        animation-fill-mode: forwards;
+      }
+      
+      /* Franklin */
+      .fish-body {
+        position: relative;
+        margin-top: 30px;
+        margin-left: 40px;
+        background-color: rgb(0, 113, 242);
+        border-radius: 50%;
+        width: 80px; 
+        height: 60px;
+      }
+      
+      .feye {
+        position: absolute;
+        margin-left: 50px;
+        margin-top: 20px;
+        z-index: 1;
+        background-color: white;
+        border-radius: 50%;
+        width: 15px;
+        height: 15px;
+      }
+      
+      .pupil {
+        position: absolute;
+        z-index: 2;
+        margin-left: 5px;
+        margin-top: 5px;
+        background-color: black;
+        border-radius: 50%;
+        height: 7.5px;
+        width: 7.5px;
+      }
+      
+      .fin {
+        margin-top: -50px; 
+        background-color: rgb(36, 3, 169);
+        border-radius: 50%;
+        transform: rotate(40deg);
+        width: 30px;
+        height: 25px;
+        margin-left: 15px;
+      }
+      
+      .fin-bottom {
+        margin-top: -8px;
+        transform: rotate(-40deg);
+      }
+  }
