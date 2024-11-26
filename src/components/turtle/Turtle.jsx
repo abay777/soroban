@@ -17,7 +17,7 @@ const Turtle = ({children}) => {
         <div class="backLeftArm skin"></div>
         <div class="backRightArm"></div>
       </div>
-      <main className="absolute -top-[19rem] right-[30%]">
+      <main className="absolute md:left-1/2 -top-10  w-[13rem] lg:top-2 lg:w-max text-wrap">
          {children}
       </main>
     </section>

@@ -4,7 +4,7 @@ import './dialogue.css'
 const DialogueBox = ({content}) => {
   return (
   
-<div class="bubble bubble-bottom-left" contenteditable>{content}</div>
+<div class="bubble bubble-bottom-left font-bold tracking-wide text-wrap text-xl" contenteditable>{content}</div>
   );
 };
 

@@ -13,7 +13,7 @@ const Fish = ({children}) => {
         <div class="fin"></div>
         <div class="fin fin-bottom"></div>
       </div>
-      <div className="flex absolute top-0 left-[60%]">
+      <div className="flex absolute top-0 w-[13rem] right-0 md:right-0 lg:right-[14%] md:w-auto">
 
       {children}
       </div>

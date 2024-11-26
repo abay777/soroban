@@ -6,7 +6,7 @@
   .fish {
     width: 30%;
     height: 28%;
-    margin-bottom:   0;
+    margin-top: 5rem;
     animation: swim 3s forwards infinite; 
     animation-fill-mode: forwards;
   }
@@ -144,7 +144,8 @@
     .fish {
         width: 30%;
         height: 28%;
-        margin-bottom:   0;
+        margin-top: 8rem;
+        margin-left: 0rem;
         animation: swim 3s forwards infinite; 
         animation-fill-mode: forwards;
       }
@@ -195,5 +196,30 @@
       .fin-bottom {
         margin-top: -8px;
         transform: rotate(-40deg);
+      }
+
+
+
+
+      @keyframes swim {
+        0% {
+         
+            transform: translateY(20%) translateX(100%) rotate(00deg);
+        }
+        25% { 
+         
+            transform: translateY(30%) translateX(62%) rotate(20deg);
+        }
+        50% {
+         
+            transform: translateY(40%) translateX(73%) rotate(20deg);
+        }
+        75% {
+          transform: translateY(50%) translateX(74%) rotate(20deg);
+        }
+        100% {
+          
+            transform: translateY(100%) translateX(75%) rotate(00deg);
+        }
       }
   }

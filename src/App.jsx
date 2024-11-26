@@ -7,6 +7,7 @@ import DialogueBox from "./components/dialogue box/DialogueBox ";
 import ModeToggleModal from "./components/helperComponents/ModeToggleButton";
 import { useMode } from "./context/ModeContext";
 import Turtle from "./components/turtle/Turtle";
+import { FaGear } from "react-icons/fa6";
 
 function App() {
   const [result, setResult] = useState(0);
@@ -70,7 +71,7 @@ function App() {
             speed={[0.5, 1.0]}
           />
         )}
-        <div className="flex justify-center items-center gap-x-24">
+        <div className="flex flex-col lg:flex-row justify-center items-center gap-x-24">
           <img
             className="w-[50%] lg:w-[25rem] mt-3 lg:translate-x-[20%] translate-x-[5%]"
             src="/logomian.png"
@@ -80,18 +81,7 @@ function App() {
             onClick={openModal}
             className="bg-white p-2 rounded-full shadow-lg hover:bg-gray-100 transition"
           >
-            <svg
-              fill="#000"
-              height="24"
-              width="24"
-              viewBox="0 0 54 54"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <g>
-                <path d="M51.22,21h-5.052c-0.812,0-1.481-0.447-1.792-1.197s-0.153-1.54,0.42-2.114l3.572-3.571..." />
-                <path d="M27,18c-4.963,0-9,4.037-9,9s4.037,9,9,9s9-4.037,9-9S31.963,18,27,18z M27,34c-3.859,0-7-3.141-7-7s3.141-7,7-7s7,3.141,7,7S30.859,34,27,34z" />
-              </g>
-            </svg>
+            <FaGear size={20} className="text-yellow-500"/>
           </button>
         </div>
         <div className="rounded-2xl shadow max-w-fit py-3 px-4 mx-auto mt-14 bg-white ">
@@ -104,9 +94,9 @@ function App() {
         <section className="relative h-[40rem] mt-10">
           {mode === "SF" && (
             <main className="flex justify-center">
-                <Fish>
+              <Fish>
                 <DialogueBox content="Hello! I'm Finny the Fish in SF Mode" />
-                </Fish>
+              </Fish>
             </main>
           )}
           {mode === "BF" && (
@@ -116,12 +106,21 @@ function App() {
           )}
           {!mode && (
             <main className=" flex justify-center">
-                <DialogueBox content="Welcome! Please select a mode to begin." />
+              <DialogueBox content="Welcome! Please select a mode to begin." />
             </main>
           )}
-          <main className={`mt-[${mode ==='BF'?  '20rem' : '10rem'}] flex justify-center mx-auto`}>
-            <Abacus setResult={setResult} />
-          </main>
+          {mode==='BF'?(
+              <main className={`md:mt-[20rem] flex justify-center mx-auto`}>
+               <Abacus setResult={setResult} />
+              </main>
+
+          ):(
+            <main className={`lg:mt-[5rem] mt-[5rem] flex justify-center mx-auto`}>
+             <Abacus setResult={setResult} />
+            </main>
+
+          )}
+
         </section>
 
         {/* Modal */}
