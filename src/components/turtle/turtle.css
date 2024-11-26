@@ -267,20 +267,34 @@ body {
     }
   }
   
-  @media (max-width:810px){
+  @keyframes turtleIntro {
+    0% {
+      transform: translateX(170%) scaleX(1); /* Start off-screen to the right */
+    }
+    100% {
+      transform: translateX(0) scaleX(1); /* End at the original position */
+    }
+  }
+
+  .turtle.intro {
+    animation: turtleIntro 2s ease-out forwards; /* Smooth intro animation */
+  }
+  
+  
+
+  @media (max-width:1600px){
     
 .turtle {
   height: 20vh;
   width: 20vh;
   border-radius: 100%;
-  -webkit-transform: scaleX(-1);
-  transform: scaleX(-1);
+  -webkit-transform: scaleX(1);
   animation: swim infinite ;
   position: relative;
-  transform: translateX(50%);
+  transform: translateX(170%);
   margin: 0 auto;
-  margin-bottom: 8rem;
-  margin-top: 4rem;
+  margin-bottom: 3.5rem;
+  margin-top: 2rem;
   /*box-shadow: 0 0 0 0vh #e2ded3, 0 6vh 10vh -0.8vh #e2ded3, -4vh 4vh 7vh -1.7vh #d2cec3 inset;*/
 }
 

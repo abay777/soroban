@@ -1,38 +1,80 @@
-/* body {
-    background-color: #42a1c6;
-  }
-   */
-  /* Franklin's Container */
+/* Responsive Adjustments */
+@media (max-width: 1600px) {
   .fish {
     width: 30%;
     height: 28%;
-    margin-top: 5rem;
-    animation: swim 3s forwards infinite; 
+    margin-top: 1rem;
+    margin-left: 0rem;
+    position: absolute;
+    left: -30%; /* Start far left */
+    top: 30%;
+    transform: translateY(-50%);
+    transition: transform 0.3s ease; /* Smooth transitions */
     animation-fill-mode: forwards;
   }
-  
-  /* Franklin */
+
+  .fish.start-left {
+    animation: move-from-left 2s ease forwards; /* Added introduction movement animation */
+  }
+
+  @keyframes move-from-left {
+    0% {
+      left: -50%;
+    }
+    100% {
+      left: 54%;
+    }
+  }
+
+  .fish.oscillate {
+    animation: oscillate 10s ease-in-out infinite; /* Corrected to infinite */
+  }
+
+  @keyframes oscillate {
+    0% {
+      transform: translateY(-20%) rotate(0deg);
+    }
+    25% {
+      transform: translateY(-45%) rotate(10deg);
+    }
+    50% {
+      transform: translateY(-40%) rotate(0deg);
+    }
+    75% {
+      transform: translateY(-55%) rotate(-10deg);
+    }
+    100% {
+      transform: translateY(-30%) rotate(0deg);
+    }
+  }
+
+  .fish.at-dialogue {
+    left: 44%; /* Final position after introduction */
+    top: 21%; /* Maintain vertical alignment */
+    transform: translateY(-50%);
+  }
+
   .fish-body {
     position: relative;
     margin-top: 30px;
     margin-left: 40px;
     background-color: rgb(0, 113, 242);
     border-radius: 50%;
-    width: 150px; 
-    height: 100px;
+    width: 80px;
+    height: 60px;
   }
-  
+
   .feye {
     position: absolute;
-    margin-left: 100px;
+    margin-left: 50px;
     margin-top: 20px;
     z-index: 1;
     background-color: white;
     border-radius: 50%;
-    width: 20px;
-    height: 20px;
+    width: 15px;
+    height: 15px;
   }
-  
+
   .pupil {
     position: absolute;
     z-index: 2;
@@ -40,186 +82,74 @@
     margin-top: 5px;
     background-color: black;
     border-radius: 50%;
-    height: 10px;
-    width: 10px;
+    height: 7.5px;
+    width: 7.5px;
   }
-  
+
   .fin {
-    margin-top: -100px; 
+    margin-top: -50px;
     background-color: rgb(36, 3, 169);
     border-radius: 50%;
     transform: rotate(40deg);
-    width: 80px;
-    height: 50px;
+    width: 30px;
+    height: 25px;
+    margin-left: 15px;
   }
-  
+
   .fin-bottom {
-    margin-top: -10px;
+    margin-top: -8px;
     transform: rotate(-40deg);
   }
-  
-  /* Bubbles */
+
+  /* Bubbles for smaller screens */
   .bubbles {
     position: absolute;
     bottom: 0;
     z-index: 5;
-    margin-right: 50px;
+    margin-right: 30px; /* Adjusted */
     background-color: white;
     border-radius: 50%;
-    opacity: .50;
-    width: 40px;
-    height: 40px;
+    opacity: 0.5;
+    width: 25px; /* Reduced size */
+    height: 25px;
     animation: up 4s infinite;
   }
-  
+
   .bubble-2 {
     left: 20%;
     animation: up 2s infinite;
   }
-  
+
   .bubble-3 {
     left: 40%;
-    opacity: .30;
+    opacity: 0.3;
     animation: up 5s infinite;
   }
-  
+
   .bubble-4 {
-    left:60%;
+    left: 60%;
     animation: up 6s infinite;
   }
-  
+
   .bubble-5 {
     left: 90%;
     animation: up 5s infinite;
   }
-  
+
   .bubble-6 {
-    left:15%;
-    opacity: .30;
+    left: 15%;
+    opacity: 0.3;
     animation: up 3s infinite;
   }
-  
+
   .bubble-7 {
-    left:45%;
+    left: 45%;
     animation: up 4s infinite;
   }
-  
+
   .bubble-8 {
-    left:75%;
-    opacity: .30;
+    left: 75%;
+    opacity: 0.3;
     animation: up 3s infinite;
   }
-  
-  /* Swim Animation */
-  @keyframes swim {
-    0% {
-     
-        transform: translateY(50px) translateX(90%) rotate(00deg);
-    }
-    25% { 
-     
-        transform: translateY(66px) translateX(62%) rotate(20deg);
-    }
-    50% {
-     
-        transform: translateY(62px) translateX(73%) rotate(20deg);
-    }
-    75% {
-      transform: translateY(80px) translateX(74%) rotate(20deg);
-    }
-    100% {
-      
-        transform: translateY(120px) translateX(75%) rotate(00deg);
-    }
-  }
-  
-  /* Bubbles Animation */
-  @keyframes up {
-    100% {
-      transform: translateY(-750px);
-    }
-  }
-  
-  @media (max-width:710px){
-    .fish {
-        width: 30%;
-        height: 28%;
-        margin-top: 8rem;
-        margin-left: 0rem;
-        animation: swim 3s forwards infinite; 
-        animation-fill-mode: forwards;
-      }
-      
-      /* Franklin */
-      .fish-body {
-        position: relative;
-        margin-top: 30px;
-        margin-left: 40px;
-        background-color: rgb(0, 113, 242);
-        border-radius: 50%;
-        width: 80px; 
-        height: 60px;
-      }
-      
-      .feye {
-        position: absolute;
-        margin-left: 50px;
-        margin-top: 20px;
-        z-index: 1;
-        background-color: white;
-        border-radius: 50%;
-        width: 15px;
-        height: 15px;
-      }
-      
-      .pupil {
-        position: absolute;
-        z-index: 2;
-        margin-left: 5px;
-        margin-top: 5px;
-        background-color: black;
-        border-radius: 50%;
-        height: 7.5px;
-        width: 7.5px;
-      }
-      
-      .fin {
-        margin-top: -50px; 
-        background-color: rgb(36, 3, 169);
-        border-radius: 50%;
-        transform: rotate(40deg);
-        width: 30px;
-        height: 25px;
-        margin-left: 15px;
-      }
-      
-      .fin-bottom {
-        margin-top: -8px;
-        transform: rotate(-40deg);
-      }
-
-
-
-
-      @keyframes swim {
-        0% {
-         
-            transform: translateY(20%) translateX(100%) rotate(00deg);
-        }
-        25% { 
-         
-            transform: translateY(30%) translateX(62%) rotate(20deg);
-        }
-        50% {
-         
-            transform: translateY(40%) translateX(73%) rotate(20deg);
-        }
-        75% {
-          transform: translateY(50%) translateX(74%) rotate(20deg);
-        }
-        100% {
-          
-            transform: translateY(100%) translateX(75%) rotate(00deg);
-        }
-      }
-  }
+}
