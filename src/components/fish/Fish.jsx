@@ -2,24 +2,24 @@ import React, { useEffect, useState } from "react";
 import "./fish.css";
 
 const Fish = ({ children, triggerMovement }) => {
-  const [animationClass, setAnimationClass] = useState("start-left"); // Default class to start animation
+  const [animationClass, setAnimationClass] = useState("start-left"); // Start with intro animation
   const [isAtFinalPosition, setIsAtFinalPosition] = useState(false); // Track if fish is in final position
 
   useEffect(() => {
     if (triggerMovement === "start-left") {
-      setAnimationClass("start-left"); // Apply movement for introduction
+      // Intro animation
+      setAnimationClass("start-left");
       setTimeout(() => {
-        setAnimationClass("at-dialogue"); // Retain position after animation
-        setIsAtFinalPosition(true); // Mark fish at final position
-      }, 2000); // Match animation duration
-    }
-
-    if (triggerMovement === "oscillate") {
+        setAnimationClass("at-dialogue"); // Stay at the final position
+        setIsAtFinalPosition(true);
+      }, 2000); // Match intro animation duration
+    } else if (triggerMovement === "oscillate") {
       if (isAtFinalPosition) {
-        setAnimationClass("oscillate"); // Apply wiggling animation for questions
+        // Oscillating animation while keeping the static position
+        setAnimationClass("at-dialogue oscillate");
         setTimeout(() => {
-          setAnimationClass("at-dialogue"); // Return to final position after wiggling
-        }, 2000); // Match animation duration
+          setAnimationClass("at-dialogue"); // Return to static position
+        }, 3000); // Match oscillate duration
       }
     }
   }, [triggerMovement, isAtFinalPosition]);
@@ -35,9 +35,10 @@ const Fish = ({ children, triggerMovement }) => {
         <div className="fin"></div>
         <div className="fin fin-bottom"></div>
       </div>
-      <div className="flex absolute top-0 w-[13rem] right-0 md:right-0 lg:right-[14%] md:w-auto">
+      <div className="flex absolute top-0 w-[13rem] max-w-[333px] right-0 md:right-0 lg:right-[13.5%] md:w-auto">
         {children}
       </div>
+      {/* Bubbles */}
       <div className="bubbles bubble-1"></div>
       <div className="bubbles bubble-5"></div>
       <div className="bubbles bubble-2"></div>

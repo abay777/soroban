@@ -132,14 +132,14 @@ function App() {
             <FaGear size={20} className="text-yellow-500" />
           </button>
         </div>
-        <div className="rounded-2xl shadow max-w-fit py-3 px-4 mx-auto mt-6 bg-white relative z-10">
+        <div className="rounded-2xl shadow max-w-fit py-3 px-4 mx-auto md:mt-6 mt-10  bg-white relative z-10">
           <span className="text-[#1e40af] font-bold text-3xl ">
             Result: {result}
           </span>
         </div>
 
         {/* Render Fish or Turtle based on mode */}
-        <section className="relative h-[40rem] mt-10">
+        <section className="relative h-[40rem] mt-5">
           {mode === "SF" && (
             <main className="flex justify-center relative z-10">
               <Fish triggerMovement={triggerMovement}>
@@ -166,7 +166,7 @@ function App() {
               <Abacus setResult={setResult} />
             </main>
           ):mode==="SF"&&(
-            <main className="mt-24 flex justify-center relative z-10">
+            <main className="mt-28 flex justify-center relative z-10">
             <Abacus setResult={setResult} />
           </main>
 

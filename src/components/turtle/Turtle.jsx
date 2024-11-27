@@ -1,17 +1,27 @@
 import React, { useEffect, useState } from "react";
-import './turtle.css';
+import "./turtle.css";
 
 const Turtle = ({ children, isIntro }) => {
-  const [animationClass, setAnimationClass] = useState("");
+  const [animationClass, setAnimationClass] = useState("at-final"); // Default state
 
   useEffect(() => {
     if (isIntro) {
-      setAnimationClass("intro"); // Apply intro animation class if isIntro is true
-      // Remove the intro class after animation to allow future animations
-      const timer = setTimeout(() => setAnimationClass(""), 2000); // Match the animation duration
-      return () => clearTimeout(timer); // Cleanup timer
+      // Trigger intro animation
+      setAnimationClass("intro");
+      const timer = setTimeout(() => {
+        // Set turtle to static position after intro
+        setAnimationClass("at-final");
+      }, 2000); // Match the CSS animation duration
+      return () => clearTimeout(timer); // Cleanup the timer
     }
   }, [isIntro]);
+
+  useEffect(() => {
+    if (!isIntro) {
+      // Ensure turtle remains at its final position on new question
+      setAnimationClass("at-final");
+    }
+  }, [children]); // Re-run when dialogue box content changes
 
   return (
     <section className="relative">
@@ -28,7 +38,7 @@ const Turtle = ({ children, isIntro }) => {
         <div className="backLeftArm skin"></div>
         <div className="backRightArm"></div>
       </div>
-      <main className="absolute md:left-1/2 -top-10 w-[13rem] lg:top-2 lg:w-max text-wrap">
+      <main className="absolute md:left-1/2 -top-10 w-[13rem] max-w-[333px] lg:top-2 lg:w-max text-wrap">
         {children}
       </main>
     </section>

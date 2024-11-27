@@ -269,10 +269,10 @@ body {
   
   @keyframes turtleIntro {
     0% {
-      transform: translateX(170%) scaleX(1); /* Start off-screen to the right */
+      transform: translateX(50rem) scaleX(1); /* Start off-screen to the right */
     }
     100% {
-      transform: translateX(0) scaleX(1); /* End at the original position */
+      transform: translateX(10rem) scaleX(1); /* End at the original position */
     }
   }
 
@@ -280,7 +280,9 @@ body {
     animation: turtleIntro 2s ease-out forwards; /* Smooth intro animation */
   }
   
-  
+  .turtle.at-final {
+    transform: translateX(10rem); /* Resting position */
+  }
 
   @media (max-width:1600px){
     
@@ -293,8 +295,8 @@ body {
   position: relative;
   transform: translateX(170%);
   margin: 0 auto;
-  margin-bottom: 3.5rem;
-  margin-top: 2rem;
+  margin-bottom: 2.5rem;
+  margin-top: 3rem;
   /*box-shadow: 0 0 0 0vh #e2ded3, 0 6vh 10vh -0.8vh #e2ded3, -4vh 4vh 7vh -1.7vh #d2cec3 inset;*/
 }
 
