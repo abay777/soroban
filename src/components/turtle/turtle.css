@@ -266,6 +266,9 @@ body {
       transform: rotate(-10deg);
     }
   }
+  .turtle.intro {
+    animation: turtleIntro 2s ease-out forwards; /* Smooth intro animation */
+  }
   
   @keyframes turtleIntro {
     0% {
@@ -274,6 +277,9 @@ body {
     100% {
       transform: translateX(10rem) scaleX(1); /* End at the original position */
     }
+  }
+  .turtle.at-final {
+    transform: translateX(10rem); /* Resting position */
   }
 
 
@@ -297,9 +303,7 @@ body {
       animation: none;
     }
   }
-  .turtle.at-final {
-    transform: translateX(10rem); /* Resting position */
-  }
+
 
   @media (max-width:4000px){
     

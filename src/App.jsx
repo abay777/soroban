@@ -121,7 +121,7 @@ function App() {
         {/* Header */}
         <div className="flex flex-col lg:flex-row justify-center items-center gap-x-24 relative z-10">
           <img
-            className="w-[50%] lg:w-[25rem] mt-3 lg:translate-x-[20%] translate-x-[5%]"
+            className="w-[90%] lg:w-[25rem] mt-3 lg:translate-x-[20%] translate-x-[5%]"
             src="/logomian.png"
             alt="Logo"
           />
@@ -132,7 +132,7 @@ function App() {
             <FaGear size={20} className="text-yellow-500" />
           </button>
         </div>
-        <div className="rounded-2xl shadow max-w-fit py-3 px-4 mx-auto md:mt-6 mt-10  bg-white relative z-10">
+        <div className="rounded-2xl shadow max-w-fit py-3 px-4 mx-auto md:mt-6 mt-5  bg-white relative z-10">
           <span className="text-[#1e40af] font-bold text-3xl ">
             Result: {result}
           </span>

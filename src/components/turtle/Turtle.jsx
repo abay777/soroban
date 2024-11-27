@@ -6,22 +6,22 @@ const Turtle = ({ children, isIntro }) => {
   const [animationClass, setAnimationClass] = useState("at-final"); // Default state
 
   useEffect(() => {
-    // Function to check screen width
     const checkScreenSize = () => {
-      setIsSmallScreen(window.innerWidth <= 900);
+      setIsSmallScreen(window.matchMedia("(max-width: 900px)").matches);
     };
-
+  
     // Initial check
     checkScreenSize();
-
-    // Add event listener to handle screen resize
-    window.addEventListener("resize", checkScreenSize);
-
+  
+    // Add event listener for changes
+    const mediaQuery = window.matchMedia("(max-width: 900px)");
+    mediaQuery.addEventListener("change", checkScreenSize);
+  
     return () => {
-      window.removeEventListener("resize", checkScreenSize);
+      mediaQuery.removeEventListener("change", checkScreenSize);
     };
   }, []);
-
+  
   useEffect(() => {
     if (isIntro) {
       // Trigger intro animation for both screen sizes
