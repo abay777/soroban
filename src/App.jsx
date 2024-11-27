@@ -155,7 +155,7 @@ function App() {
             </main>
           )}
           {!mode && (
-            <main className="flex justify-center relative z-10">
+            <main className="flex justify-center w-2/4 relative mx-auto z-10">
               <DialogueBox content={dialogue} />
             </main>
           )}
@@ -165,11 +165,15 @@ function App() {
             <main className="mt-5 flex justify-center relative z-10">
               <Abacus setResult={setResult} />
             </main>
-          ):mode==="SF"&&(
+          ):mode ==="SF"?(
             <main className="mt-28 flex justify-center relative z-10">
             <Abacus setResult={setResult} />
           </main>
 
+          ):(
+            <main className="mt-5 flex justify-center relative z-10">
+            <Abacus setResult={setResult} />
+          </main>
           )
 
           }
