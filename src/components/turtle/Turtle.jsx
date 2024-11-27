@@ -2,11 +2,29 @@ import React, { useEffect, useState } from "react";
 import "./turtle.css";
 
 const Turtle = ({ children, isIntro }) => {
+  const [isSmallScreen, setIsSmallScreen] = useState(false);
   const [animationClass, setAnimationClass] = useState("at-final"); // Default state
 
   useEffect(() => {
+    // Function to check screen width
+    const checkScreenSize = () => {
+      setIsSmallScreen(window.innerWidth <= 900);
+    };
+
+    // Initial check
+    checkScreenSize();
+
+    // Add event listener to handle screen resize
+    window.addEventListener("resize", checkScreenSize);
+
+    return () => {
+      window.removeEventListener("resize", checkScreenSize);
+    };
+  }, []);
+
+  useEffect(() => {
     if (isIntro) {
-      // Trigger intro animation
+      // Trigger intro animation for both screen sizes
       setAnimationClass("intro");
       const timer = setTimeout(() => {
         // Set turtle to static position after intro
@@ -21,8 +39,26 @@ const Turtle = ({ children, isIntro }) => {
       // Ensure turtle remains at its final position on new question
       setAnimationClass("at-final");
     }
-  }, [children]); // Re-run when dialogue box content changes
+  }, [children]);
 
+  if (isSmallScreen) {
+    // Render image for smaller screens
+    return (
+      <section className="relative">
+        <img
+          src="/turtle image.png" // Replace with the correct image path
+          alt="Turtle"
+          id="turtle"
+          className={`w-[6rem] h-[6rem] mt-[4rem] ${animationClass}`} // Use animationClass for animation
+        />
+        <main className="absolute md:left-1/2 -top-10 w-[13rem] max-w-[333px] lg:top-2 lg:w-max text-wrap">
+          {children}
+        </main>
+      </section>
+    );
+  }
+
+  // Render CSS turtle for larger screens
   return (
     <section className="relative">
       <div className={`turtle ${animationClass}`}>

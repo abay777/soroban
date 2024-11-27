@@ -166,7 +166,7 @@ function App() {
               <Abacus setResult={setResult} />
             </main>
           ):mode ==="SF"?(
-            <main className="mt-28 flex justify-center relative z-10">
+            <main className=" mt-48 flex justify-center relative z-10">
             <Abacus setResult={setResult} />
           </main>
 

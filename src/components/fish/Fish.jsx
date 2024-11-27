@@ -35,7 +35,7 @@ const Fish = ({ children, triggerMovement }) => {
         <div className="fin"></div>
         <div className="fin fin-bottom"></div>
       </div>
-      <div className="flex absolute top-0 w-[13rem] max-w-[333px] right-0 md:right-0 lg:right-[13.5%] md:w-auto">
+      <div className="flex absolute top-0 w-[13rem] max-w-[333px] right-0 md:right-0 lg:right-[13.5%] xl:right-[25%] md:w-auto">
         {children}
       </div>
       {/* Bubbles */}

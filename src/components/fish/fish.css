@@ -167,15 +167,62 @@
 }
 
 /* Responsive Adjustments */
-@media (max-width: 1600px) {
+@media (max-width: 1020px) {
   .fish {
     width: 30%;
     height: 28%;
-    margin-top: 1rem;
+    margin-top: 5.5rem;
     margin-left: 0rem;
     position: absolute;
     left: -30%; /* Start far left */
     top: 30%;
     transform: translateY(-50%);
   }
+}
+
+@media (min-width: 1021px) {
+  .fish {
+    width: 30%;
+    height: 28%;
+    margin-top: 4.5rem;
+    margin-left: 0rem;
+    position: absolute;
+    left: -30%; /* Start far left */
+    top: 30%;
+    transform: translateY(-50%);
+  }
+  @keyframes move-from-left {
+    0% {
+      left: -50%;
+    }
+    100% {
+      left: 44%; /* Final horizontal position */
+    }
+  }
+
+  .fish.at-dialogue {
+    left: 44%; /* Final horizontal position */
+    top: 30%; /* Maintain vertical position */
+    transform: translateY(-50%);
+    transition: none; /* No animation during static state */
+  }
+}
+
+@media(max-width:650px){
+  @keyframes move-from-left {
+    0% {
+      left: -50%;
+    }
+    100% {
+      left: 25%; /* Final horizontal position */
+    }
+  }
+
+  .fish.at-dialogue {
+    left: 25%; /* Final horizontal position */
+    top: 30%; /* Maintain vertical position */
+    transform: translateY(-50%);
+    transition: none; /* No animation during static state */
+  }
+
 }
